@@ -1,0 +1,1 @@
+<div class="footbar"><div class="foot"><?php echo nl2br(html_entity_decode($footer)); ?><br/><script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/11/179/0000/60456022/CA111790000604560220002.js' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
