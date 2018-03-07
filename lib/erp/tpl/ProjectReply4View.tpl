@@ -11,6 +11,7 @@ if(!empty($rs)):
             <div class="clear"><span><?php echo $rs['no']; ?></span><span class="right">签发人：<?php echo $rs['signer']; ?></span></div>
             <div class="pa4-redline"></div>
             <div class="pa4-company"><?php echo $gc; ?>:</div>
+            <div class=""><?php echo $rs['content']; ?></div>
             <div class="pa4-sign1 clear"><span class="pa4-signer1">单位：(项目法人) <?php echo $rs['comp']; ?><br/><?php echo $rs['date']; ?></span></div>
         </div>
 <?php
