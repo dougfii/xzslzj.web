@@ -47,16 +47,47 @@
 <div class="panel paneltool">
     <div class="pagea4">
         <div class="pagea4info">
-            <div class="center">质量监督检查意见表</div>
-            <table class="tx1">
-                <tr><td class="k">工程名称</td><td class="v"><?php if($edit) echo '<input type="text" class="" id="name" value="' . $name . '" />'; else echo $name; ?></td><td class="k">检查表编号</td><td class="v"><?php if($edit) echo '<input type="text" class="" id="no" value="' . $no . '" />'; else echo $no; ?></td></tr>
-                <tr><td class="" colspan="2">质量监督人员和证号：<?php if($edit) echo '<input type="text" class="" id="code" value="' . $code . '" />'; else echo $code; ?></td><td class="k">检查时间</td><td class="v"><?php if($edit) echo '<input type="text" class="" id="date" value="' . $date . '" onclick="laydate();" readonly />'; else echo $date; ?></td></tr>
-                <tr><td class="" colspan="4">参建单位人员：<?php if($edit) echo '<input type="text" class="" id="personals" value="' . $personals . '" />'; else echo $personals; ?></td></tr>
-                <tr><td class="" colspan="4">工程形象进度：<?php if($edit) echo '<input type="text" class="" id="progress" value="' . $progress . '" />'; else echo $progress; ?></td></tr>
-                <tr><td class="" colspan="4"><p>监督检查意见：</p><p><?php if($edit) echo '<textarea rows="10" class="w" id="content">' . $content . '</textarea>'; else echo $content; ?></p></td></tr>
-                <tr><td class="" colspan="4"><p>被检查单位签收人：<?php if($edit) echo '<input type="text" class="" id="writer" value="' . $writer . '" />'; else echo $writer; ?>　　日期：<?php if($edit) echo '<input type="text" class="" id="writer_date" value="' . $writer_date . '" onclick="laydate();" readonly />'; else echo $writer_date; ?></p><p>填写人：<?php if($edit) echo '<input type="text" class="" id="signer" value="' . $signer . '" />'; else echo $signer; ?>　　日期：<?php if($edit) echo '<input type="text" class="" id="signer_date" value="' . $signer_date . '" onclick="laydate();" readonly />'; else echo $signer_date; ?></p></td>
-            </table>
+            <div class="pa4-caption1"><?php echo $gc; ?></div>
+            <div class="center">检查表编号：<?php if($edit) echo '<input type="text" class="" id="no" value="' . $no . '" />'; else echo $no; ?></div>
+            <div class="pa4-redline"></div>
+            <div class="center">关于<?php if($edit) echo '<input type="text" class="" id="name" value="' . $name . '" />'; else echo $name; ?>质量监督检查有关情况的通知</div>
+            <br/>
+            <div>
+                <?php
+              if($edit){
+                echo '<textarea rows="50" class="" style="width:100%;padding:5px;" id="content">';
+                   if(empty($content)){
+                        echo $company . "：\n";
+                        echo "　　_______年___月___日，我站质量监督员（____、____、____）对" . $name . "施工过程进程第____次巡查监督，主要对_______施工现场、监理及施工单位资料进行检查。参建单位主要人员为_______________________________________________。现将检查情况分述如下：\n\n";
+                    }
+                    else{
+                        echo $content;
+                    }
+                   echo '</textarea>';
+                }
+                else{
+                    echo nl2br($content);
+                }
+                ?>
+            </div>
+            <br/><br/>
+            <div class="right">
+                <p><?php echo $gc; ?></p>
+                <br/>
+                <p>日期：<?php if($edit) echo '<input type="text" class="" id="date" value="' . $date . '" onclick="laydate();" readonly />'; else echo $date; ?></p>
+            </div>
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+            <div>
+                <p>签收单位：<?php if($edit) echo '<input type="text" class="" id="writer" value="' . $writer . '" />'; else echo $writer; ?>　　日期：<?php if($edit) echo '<input type="text" class="" id="writer_date" value="' . $writer_date . '" onclick="laydate();" readonly />'; else echo $writer_date; ?></p>
+                <p>签收人：<?php if($edit) echo '<input type="text" class="" id="signer" value="' . $signer . '" />'; else echo $signer; ?>　　日期：<?php if($edit) echo '<input type="text" class="" id="signer_date" value="' . $signer_date . '" onclick="laydate();" readonly />'; else echo $signer_date; ?></p>
+            </div>
+            <br/><br/>
             <?php echo $atts; ?>
+            <div>
+                <input type="hidden" id="code"/>
+                <input type="hidden" id="personals"/>
+                <input type="hidden" id="progress"/>
+            </div>
         </div>
         <?php if($edit) echo '<div class="pagedialog-buttons"><a href="javascript:;" class="btn" id="allow">发送</a></div>'; ?>
         <br/>

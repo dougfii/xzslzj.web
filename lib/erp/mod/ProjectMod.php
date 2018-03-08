@@ -976,12 +976,14 @@ class ProjectMod extends BaseMod
 
         if ($pid <= 0 || $uid <= 0) Json::ReturnError(ALERT_ERROR);
 
-        if (empty($name)) Json::ReturnError('请输入工程名称');
         if (empty($no)) Json::ReturnError('请输入检查表编号');
-        if (empty($code)) Json::ReturnError('质量监督人员和证号');
-        if (empty($date)) Json::ReturnError('请输入检查时间');
-        if (empty($personals)) Json::ReturnError('请输入参建单位人员');
-        if (empty($progress)) Json::ReturnError('请输入工程形象进度');
+        if (empty($name)) Json::ReturnError('请输入工程名称');
+        if (empty($content)) Json::ReturnError('请输入检查意见');
+        if (empty($date)) Json::ReturnError('请输入时间');
+
+        //if (empty($code)) Json::ReturnError('质量监督人员和证号');
+        //if (empty($personals)) Json::ReturnError('请输入参建单位人员');
+        //if (empty($progress)) Json::ReturnError('请输入工程形象进度');
         //if (empty($writer)) Json::ReturnError('请输入被检查单位签收人');
         //if (empty($writer_date)) Json::ReturnError('请输入被检查单位签收人日期');
         //if (empty($signer)) Json::ReturnError('请输入填写人');
