@@ -39,7 +39,17 @@
                 }
             });
         };
+
+
     });
+
+    function defText(){
+        layer.confirm("是否添加默认文本格式？", function(){
+            var val = '<?php echo  "${company}：\\n　　_______年___月___日，我站质量监督员（____、____、____）对${name}施工过程进程第____次巡查监督，主要对_______施工现场、监理及施工单位资料进行检查。参建单位主要人员为_______________________________________________。现将检查情况分述如下：\\n\\n"; ?>';
+            $('#content').val(val);
+            layer.closeAll();
+        });
+    }
 </script>
 <div class="toolbar">
     <div class="tool clear"><span class="cap">外观质量检查与评定项目确认 - [发送意见]</span><a class="tooladd back" href="javascript:;">返回</a></div>
@@ -55,15 +65,7 @@
             <div>
                 <?php
               if($edit){
-                echo '<textarea rows="50" class="" style="width:100%;padding:5px;" id="content">';
-                   if(empty($content)){
-                        echo $company . "：\n";
-                        echo "　　_______年___月___日，我站质量监督员（____、____、____）对" . $name . "施工过程进程第____次巡查监督，主要对_______施工现场、监理及施工单位资料进行检查。参建单位主要人员为_______________________________________________。现将检查情况分述如下：\n\n";
-                    }
-                    else{
-                        echo $content;
-                    }
-                   echo '</textarea>';
+                echo '<textarea rows="50" class="" style="width:100%;padding:5px;" id="content" ondblclick="defText();">' . $content . '</textarea>';
                 }
                 else{
                     echo nl2br($content);
@@ -77,16 +79,18 @@
                 <p>日期：<?php if($edit) echo '<input type="text" class="" id="date" value="' . $date . '" onclick="laydate();" readonly />'; else echo $date; ?></p>
             </div>
             <br/><br/><br/><br/><br/><br/><br/><br/>
-            <div>
-                <p>签收单位：<?php if($edit) echo '<input type="text" class="" id="writer" value="' . $writer . '" />'; else echo $writer; ?>　　日期：<?php if($edit) echo '<input type="text" class="" id="writer_date" value="' . $writer_date . '" onclick="laydate();" readonly />'; else echo $writer_date; ?></p>
-                <p>签收人：<?php if($edit) echo '<input type="text" class="" id="signer" value="' . $signer . '" />'; else echo $signer; ?>　　日期：<?php if($edit) echo '<input type="text" class="" id="signer_date" value="' . $signer_date . '" onclick="laydate();" readonly />'; else echo $signer_date; ?></p>
-            </div>
-            <br/><br/>
+            <?php
+            if(!empty($write) || !empty($signer) || !empty($writer_date)) echo "<div><p>签收单位：{$writer}</p><p>签收人：{$signer}</p><p>日期：{$writer_date}</p></div><br/><br/>";
+            ?>
             <?php echo $atts; ?>
             <div>
                 <input type="hidden" id="code"/>
                 <input type="hidden" id="personals"/>
                 <input type="hidden" id="progress"/>
+                <input type="hidden" id="writer"/>
+                <input type="hidden" id="writer_date"/>
+                <input type="hidden" id="signer"/>
+                <input type="hidden" id="signer_date"/>
             </div>
         </div>
         <?php if($edit) echo '<div class="pagedialog-buttons"><a href="javascript:;" class="btn" id="allow">发送</a></div>'; ?>

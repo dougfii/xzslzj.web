@@ -95,6 +95,15 @@ class Flow4Cls
 				", array($id));
     }
 
+    public static function SetSign($id, $pid, $writer, $signer, $writer_date)
+    {
+        DB::db()->Query("
+                UPDATE " . self::TABLE . "
+                SET writer=?, signer=?, writer_date=?
+                WHERE id=? AND pid=?
+                ", array($writer, $signer, $writer_date, $id, $pid));
+    }
+
     public static function SetReply($id, $uid, $replyid, $act = 0)
     {
         DB::db()->Query("

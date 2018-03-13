@@ -47,12 +47,12 @@
         <div class="pagea4info">
 
             <div class="pa4-caption1">关于<?php echo $name; ?>工程质量监督检查意见落实整改情况的说明</div>
-            <div class="clear"><span>文件编号:<input type="text" class="pae4-text1" id="no" /></span><span class="right">签发人:<input type="text" class="pae4-text1" id="signer" /></span></div>
+            <div class="clear"><span>文件编号：<input type="text" class="pae4-text1" id="no" /></span><span class="right">签发人：<input type="text" class="pae4-text1" id="signer" /></span></div>
             <div class="pa4-redline"></div>
             <div class="pa4-company"><?php echo $gc; ?>:</div>
             <div class=""><textarea rows="30" class="pa4-textarea1" id="content"></textarea></div>
             <?php echo $atts; ?>
-            <div class="pa4-sign1 clear"><span class="pa4-signer1">单位:(项目法人)<input type="text" class="pae4-text1" id="comp" /><br/>日期:<input type="text" class="pae4-text1" id="date" onclick="laydate();" readonly /></span></div>
+            <div class="pa4-sign1 clear"><span class="pa4-signer1">单位：(项目法人)<input type="text" class="pae4-text1" id="comp" value="<?php echo $company; ?>" /><br/>日期：<input type="text" class="pae4-text1" id="date" onclick="laydate();" readonly /></span></div>
         </div>
     </div>
     <input type="hidden" id="fid" value="<?php echo $fid; ?>" />

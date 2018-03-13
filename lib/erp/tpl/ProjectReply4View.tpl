@@ -8,7 +8,7 @@ if(!empty($rs)):
 ?>
         <div class="pagea4info">
             <div class="pa4-caption1">关于<?php echo $name; ?>工程质量监督检查意见落实整改情况的说明</div>
-            <div class="clear"><span><?php echo $rs['no']; ?></span><span class="right">签发人：<?php echo $rs['signer']; ?></span></div>
+            <div class="clear"><span>文件编号：<?php echo $rs['no']; ?></span><span class="right">签发人：<?php echo $rs['signer']; ?></span></div>
             <div class="pa4-redline"></div>
             <div class="pa4-company"><?php echo $gc; ?>:</div>
             <div class=""><?php echo $rs['content']; ?></div>

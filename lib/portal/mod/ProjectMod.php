@@ -952,6 +952,8 @@ class ProjectMod extends BaseMod
 
         $view->rs = $rs;
 
+        $view->id = $id;
+        $view->pid = $pid;
         $view->gc = $gc;
         $view->name = $name;
         $view->company = $company;
@@ -964,6 +966,25 @@ class ProjectMod extends BaseMod
         echo $view->Render();
 
         $this->MemberFooter();
+    }
+
+    public function OnProjectFlow4Sign()
+    {
+        $id = $this->Req('id', 0, 'int');
+        $writer = $this->Req('writer', '', 'str');
+        $signer = $this->Req('signer', '', 'str');
+        $writer_date = $this->Req('writer_date', '', 'str');
+
+        $pid = $this->Mid();
+
+        if ($id <= 0 || $pid <= 0) Json::ReturnError(ALERT_ERROR);
+        if (empty($writer)) Json::ReturnError('请输入签收单位');
+        if (empty($signer)) Json::ReturnError('请输入签收人');
+        if (empty($writer_date)) Json::ReturnError('请输入日期');
+
+        Flow4Cls::SetSign($id, $pid, $writer, $signer, $writer_date);
+
+        Json::ReturnSuccess();
     }
 
     public function ProjectReply4()
